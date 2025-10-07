@@ -30,11 +30,17 @@ for lyr in lyrs:
     # print(len(names))
     # print(names)
 
+# Count the occurrences of each field name across all layers
+# This will help identify common fields across layers
+value_series = df.stack()
+value_counts = value_series.value_counts()
+print(value_counts)
+
 # Transpose the dataframe so that each column is a layer and each row is a field name
 df = df.transpose()
 # print(df)
 
 # Export the dataframe to a CSV file
 # Adjust the file path as needed
-# df.to_csv(r"Z:\Temp\Emily\ParksData_Fields.csv", index=False)
+# Example: df.to_csv(r"Z:\Temp\Emily\ParksData_Fields.csv", index=False)
 df.to_csv(r"PATH", index=False)
